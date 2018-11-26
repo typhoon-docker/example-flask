@@ -16,7 +16,10 @@ app = Flask(__name__)
 @app.route("/")
 def hello_world():
     hostname = subprocess.check_output("hostname").decode("utf-8").strip()
-    label = subprocess.check_output(["git", "rev-parse", "--short", "HEAD"]).decode("utf-8").strip()
+    try:
+        label = subprocess.check_output(["git", "rev-parse", "--short", "HEAD"]).decode("utf-8").strip()
+    except:
+        label = "(git not found)"
     return f"Flask server is up on {hostname}, with label {label}"
 
 
