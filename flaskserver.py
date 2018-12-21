@@ -20,7 +20,16 @@ def hello_world():
         label = subprocess.check_output(["git", "rev-parse", "--short", "HEAD"]).decode("utf-8").strip()
     except:
         label = "(git not found)"
-    return f"Flask server is up on {hostname}, with label {label}"
+    return f"""<!DOCTYPE html>
+<html>
+  <head>
+    <title>Typhoon Flask Page</title>
+  </head>
+  <body>
+    <h1>Typhoon - Flask Server Page</h1>
+    Flask server is up on {hostname}, with label {label}
+  </body>
+</html>"""
 
 
 if __name__ == "__main__":

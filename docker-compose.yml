@@ -3,8 +3,16 @@ version: "3"
 services:
   code:
     image: example-flask
+    restart: always
     container_name: lolflask
+    environment:
+      - VIRTUAL_HOST=flask.typhoon.viarezo.fr
+      - LETSENCRYPT_HOST=flask.typhoon.viarezo.fr
+      - LETSENCRYPT_EMAIL=aymeric.bernard@student.ecp.fr
     ports:
       - "8042:8042"
-    stdin_open: true
-    tty: true
+
+networks:
+  default:
+    external:
+      name: nginx-proxy
