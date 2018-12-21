@@ -1,0 +1,10 @@
+version: "3"
+
+services:
+  code:
+    image: example-flask
+    container_name: lolflask
+    ports:
+      - "8042:8042"
+    stdin_open: true
+    tty: true
