@@ -27,7 +27,7 @@ def hello_world():
   </head>
   <body>
     <h1>Typhoon - Flask Server Page</h1>
-    Flask server is up on {hostname}, with label {label}
+    <p>Flask server is up on {hostname}, with label {label}</p>
   </body>
 </html>"""
 
